@@ -5,7 +5,7 @@ import re
 
 nlp = spacy.load('pt')
 
-arquivoXML = 'model/arquivos/baseDados.xml'
+arquivoXML = 'model/arquivos/bases/baseDados.xml'
 arquivoFN = open('model/arquivos/FN.csv','r')
 arvore = et.parse(arquivoXML)
 raiz = arvore.getroot()
@@ -50,6 +50,5 @@ for x in tabelasFN:
    resposta.text = x[3]
    fonte.text = x[4]
 
-print(arquivoXML)
 arvore.write(arquivoXML)
 arquivoFN.close()

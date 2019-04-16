@@ -15,7 +15,7 @@ def removerEspaco(frase):
    return temp
 
 def criarBaseDados(texto):
-   arquivo = open('model/arquivos/baseDados.xml','w')
+   arquivo = open('model/arquivos/bases/baseDados.xml','w')
    arquivo.write(texto)
    arquivo.close()
 
@@ -31,4 +31,3 @@ for x in range(len(linhasVacinas)-2):
 xml+='</base>'
 arquivoVacinas.close()
 criarBaseDados(xml)
-

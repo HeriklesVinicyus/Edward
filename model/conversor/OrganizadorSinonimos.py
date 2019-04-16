@@ -78,9 +78,8 @@ for i in lista:
                 aux = ['\n'+_removerSpace(x).lower()+'|{}'.format(cont) for x in temp]
                 texto+=(''.join(aux))
                 cont+=1
-print(texto)
 arquivo.close()
 
-novoArquivo = open('model/arquivos/BaseSinonimos.txt','w')
+novoArquivo = open('model/arquivos/bases/BaseSinonimos.txt','w')
 novoArquivo.write(texto)
 novoArquivo.close()

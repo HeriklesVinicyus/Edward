@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as et
 
-arquivoXML = 'model/arquivos/baseDados.xml'
+arquivoXML = 'model/arquivos/bases/baseDados.xml'
 arvore = et.parse(arquivoXML)
 raiz = arvore.getroot()
 
