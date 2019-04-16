@@ -23,7 +23,7 @@ def _retornaApenasSinonimosTXT(txt,cInicial,cFinal):
     cont = 0
     for x in palavraSiginificado:
         cont +=1
-        print(x.split(cFinal),cont)
+        #print(x.split(cFinal),cont)
         palavra += (x.split(cFinal))[0]+'\n\n'
     
     return palavra
@@ -53,6 +53,34 @@ for i in texto.split('\n\n'):
     if len(i.split(' '))>1 and i.split(' ')[1].isupper():
         lista.append(i)
 
-texto
-print ('\n\n'.join(lista))
+texto = ''.join(lista)
+lista = texto.split('@')
+texto = ''
+#print(lista)
+for i in lista:
+        if len(i.split(' – '))>0:
+                texto += i.split(' – ')[0]+'\n'
+
+lista = []
+lista = texto.split('\n')
+texto = ''
+for i in lista:
+        if  not (len(i.split(' ')[0])>1):
+                texto+= i.split('.')[0]+'\n'
+texto = texto.replace('\n ','\n')
+texto = texto.replace(';',',')
+lista = texto.split('\n')
+texto = ''
+cont = 0
+for i in lista:
+        temp = i.split(', ')
+        if temp[0].isupper() and not len(temp[0].split(' '))>1:
+                aux = ['\n'+_removerSpace(x).lower()+'|{}'.format(cont) for x in temp]
+                texto+=(''.join(aux))
+                cont+=1
+print(texto)
 arquivo.close()
+
+novoArquivo = open('model/arquivos/BaseSinonimos.txt','w')
+novoArquivo.write(texto)
+novoArquivo.close()
