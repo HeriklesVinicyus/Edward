@@ -38,5 +38,3 @@ def agenteCapitaoAmerica(vacina, frase):
     if(tempDescri!=''):
         return tempDescri
     return ''
-
-print(agenteCapitaoAmerica('hv','indicacao'))
