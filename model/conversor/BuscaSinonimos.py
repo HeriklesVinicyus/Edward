@@ -72,7 +72,7 @@ def _criarDicionarioSinonimos():
     lista = _extrairPalavrasBaseFN()
     lista = ['/'+_removeAcentos(i)+'/' for i in lista]
     temp = []
-    text = ''
+    #text = ''
     palavrasSemSinonimos = ''
     id = 0
     for i in lista:
@@ -84,11 +84,11 @@ def _criarDicionarioSinonimos():
         except et.ParseError:
             palavrasSemSinonimos+=i
             continue
-        aux = _retornaPalavrasComLink(raiz,id)
+        aux = _retornaPalavrasComLink(raiz,i.replace('/',''))
         temp+= aux[0]
         #usado para buscar sinonimos dos sinonimos(não em uso)
-        text += aux[1]
-        temp+=_retornaPalavrasSemlink(raiz,id)
+        #text += aux[1]
+        temp+=_retornaPalavrasSemlink(raiz,i.replace('/',''))
         id+=1
     #print(palavrasSemSinonimos)
     return '\n'.join(temp)
