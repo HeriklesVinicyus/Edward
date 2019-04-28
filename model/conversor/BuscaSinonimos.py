@@ -3,7 +3,6 @@ import xml.etree.ElementTree as et
 from unicodedata import normalize
 import spacy
 
-
 nlp = spacy.load('pt')
 
 #função para buscar dentro de um site do sinonimos.com.br e joga no arquivo temp.xml

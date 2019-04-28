@@ -1,7 +1,10 @@
 '''
 Essa classe trabalhar com a base de sinônimos removendo redundâncias e incongruências 
 '''
-def _retornarIndicesRepetidos(sinonimos):
+import spacy
+nlp = spacy.load('pt')
+
+def _retornarIndicesSemrepedicoes(sinonimos):
     resp = [sinonimos[0]]
     for i in sinonimos:
         cont = 0
@@ -19,7 +22,8 @@ def _retornarIndicesRepetidos(sinonimos):
 arquivoSinonimos = open('model/arquivos/bases/baseSinonimos.txt')
 sinonimos = arquivoSinonimos.read()
 sinonimosIndices = [[i.split('|')[0],i.split('|')[1]] for i in sinonimos.split('\n')]
-sinonimosIndices = _retornarIndicesRepetidos(sinonimosIndices)
+sinonimosIndices = _retornarIndicesSemrepedicoes(sinonimosIndices)
+#i.lemma_ for i in nlp(str(sinonimosIndices))
 temp = '\n'.join([i[0].lower()+'|'+i[1].lower() for i in sinonimosIndices])
 
 arquivoSinonimos.close()
