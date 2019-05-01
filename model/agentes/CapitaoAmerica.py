@@ -30,7 +30,15 @@ class CapitaoAmerica:
                     return x
         return ''
 
-    def agenteCapitaoAmerica(self, vacina, frase):
+    def _descobreVacina(self, frase):
+        for nome in frase.split(' '):
+            palavras = self._retornarVacina(nome)
+            if palavras != '':
+                return nome
+        return 'TODAS'
+
+    def agenteCapitaoAmerica(self, frase):
+        vacina = self._descobreVacina(frase)
         tempFN = self._retornarResposta(vacina,frase)
         tempDescri = self._retornarDescricao(vacina,frase)
 

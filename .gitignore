@@ -3,9 +3,11 @@
 # Edit at https://www.gitignore.io/?templates=visualstudiocode
 
 ### VisualStudioCode ###
-.vscode/*
-.vscode/
+!.vscode/*
+!.vscode/
+._temp/*
 ._temp/
+.agentes/__pycache__/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
