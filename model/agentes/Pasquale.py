@@ -20,8 +20,3 @@ class Pasquale:
       resp.append(self._tratamentoSpacy(frase))
       resp.append(self. _tratamentoNltk(frase))
       return resp
-
-classe = Pasquale()
-test = 'A Vacina contra o HPV incentiva o sexo sem preservativo'
-tratada = classe.tratadas(test)
-print(tratada)
