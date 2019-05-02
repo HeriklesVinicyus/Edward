@@ -16,7 +16,9 @@ class Pasquale:
       return (' '.join([i.lemma_ for i in self._nlp(str(frase)) if not i.is_punct])).lower()
    
    def tratadas(self, frase):
-      resp = []
-      resp.append(self._tratamentoSpacy(frase))
-      resp.append(self. _tratamentoNltk(frase))
+      resp = [frase]
+      for i in nltk.tokenize.sent_tokenize(frase):
+         resp.append(i)
+         resp.append(self._tratamentoSpacy(i))
+         resp.append(self. _tratamentoNltk(i))
       return resp

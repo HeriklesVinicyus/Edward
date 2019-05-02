@@ -44,7 +44,7 @@ class Ramalho:
     def _recaregarPalavrasDesconhecidas(self):
         self._palavrasDesconhecidas = _buscarPalavrasDesconhecidas()
 
-    def retornaFaseComPalavrasConecidas(self,frase):
+    def retornaFaseComPalavrasConhecidas(self,frase):
         temp = frase.split()
         resp = ''
         for i in temp:

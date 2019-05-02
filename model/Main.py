@@ -7,26 +7,25 @@ class Edward:
         self._ag1 = Pasquale()
         self._ag2 = Ramalho()
         self._ag3 = CapitaoAmerica()
-        self.resposta = ''
-        self.referencia = ''
-    #frase = 'Vacina do HPV UM INCENTIVO À VIDA SEXUAL PRECOCE?'
+        self.resposta = []
 
     def _agir(self, frase):
         frases = self._ag1.tratadas(frase)
-        frases.append(frase)
         cont = len(frases)-1
         while(cont>=0):
-            aux = self._ag2.retornaFaseComPalavrasConecidas(frases[cont])
+            aux = self._ag2.retornaFaseComPalavrasConhecidas(frases[cont])
             frases.append(aux)
             cont-=1
 
         for i in frases:
             aux = self._ag3.agenteCapitaoAmerica(i)
-            if aux != '':
-                self.resposta = aux[0]
-                self.referencia = aux[1]
-                break
-        return self.resposta,self.referencia
+            if aux != '' and [aux[0],aux[1]] not in self.resposta:
+                self.resposta.append([aux[0],aux[1]])
+        return self.resposta
+
 
 test = Edward()
-print(test._agir('Vacina do HPV UM encorajamento PRECOCE À VIDA SEXUAL'))
+nosso = test._agir('Vacina contra o HPV da a incentiva o sexo sem preservativo. Vacina do HPV UM encorajamento PRECOCE À VIDA SEXUAL')
+
+for i in nosso:
+    print(i)

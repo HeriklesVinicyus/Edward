@@ -39,7 +39,6 @@ class CapitaoAmerica:
 
     def _verificaSeExisteTodasPalavrasDaFrase(self,fraseBase,acusacao):
         flagTemaPalavra = False
-        #print (fraseBase,acusacao)
         for y in fraseBase.split(' '):
             flagTemaPalavra = False
             for z in acusacao.split(' '):
@@ -55,7 +54,6 @@ class CapitaoAmerica:
         if len(vacina)>0:
             TodasFNdaVacina = [i for i in vacina if i.tag =='fakenews'][0]
             for x in TodasFNdaVacina:
-
                 for i in range(3):
                     resp = self._verificaSeExisteTodasPalavrasDaFrase(x[i].text,acusacao)
                     if resp:
