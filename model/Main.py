@@ -28,3 +28,5 @@ class Edward:
                 break
         return self.resposta,self.referencia
 
+test = Edward()
+print(test._agir('Vacina do HPV UM encorajamento À VIDA SEXUAL PRECOCE?'))

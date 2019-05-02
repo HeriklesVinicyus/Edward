@@ -1,3 +1,4 @@
+
 def _buscarPalavrasBaseLista():
     arq = open('model/arquivos/bases/baseSinonimos.txt')
     temp = arq.read()
@@ -31,7 +32,7 @@ def _retornaPalavrasConhecida(palavra, baseSinonimos):
     aux = [i[1] for i in baseSinonimos if i[0] == palavra]
     if len(aux) == 0:
         _adicionarPalavras(palavra)
-        return ''
+        return palavra
     if len(aux) > 0:
         return aux[0]
 
@@ -50,7 +51,5 @@ class Ramalho:
         resp = ''
         for i in temp:
             aux = _retornaPalavrasConhecida(i,self._listaSinonimos)
-            if aux == '':
-                return ''
             resp+= ' '+aux
         return ' '.join(resp.split())
