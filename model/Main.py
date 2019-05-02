@@ -29,4 +29,4 @@ class Edward:
         return self.resposta,self.referencia
 
 test = Edward()
-print(test._agir('Vacina do HPV UM encorajamento À VIDA SEXUAL PRECOCE?'))
+print(test._agir('Vacina do HPV UM encorajamento PRECOCE À VIDA SEXUAL'))

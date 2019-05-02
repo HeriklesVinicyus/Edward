@@ -24,8 +24,8 @@ class CapitaoAmerica:
 
     def _retornarFN(self,id,acusacao):
         if id != '':
-            nunFN = [i for i in id if i.tag =='fakenews'][0]
-            for x in nunFN:
+            TodasFNdaVacina = [i for i in id if i.tag =='fakenews'][0]
+            for x in TodasFNdaVacina:
                 if acusacao.lower() == (x[0].text).lower() or acusacao.lower() == (x[1].text).lower() or acusacao.lower() == (x[2].text).lower():
                     return x
         return ''
@@ -37,13 +37,43 @@ class CapitaoAmerica:
                 return nome
         return 'TODAS'
 
+    def _verificaSeExisteTodasPalavrasDaFrase(self,fraseBase,acusacao):
+        flagTemaPalavra = False
+        #print (fraseBase,acusacao)
+        for y in fraseBase.split(' '):
+            flagTemaPalavra = False
+            for z in acusacao.split(' '):
+                if(y.lower()==z.lower()):
+                    flagTemaPalavra = True
+                    break
+            if not (flagTemaPalavra):
+                return flagTemaPalavra
+        return flagTemaPalavra
+    
+    def _buscarFNPorPalavrasNaFrase(self,nome,acusacao):
+        vacina = self._retornarVacina(nome)
+        if len(vacina)>0:
+            TodasFNdaVacina = [i for i in vacina if i.tag =='fakenews'][0]
+            for x in TodasFNdaVacina:
+
+                for i in range(3):
+                    resp = self._verificaSeExisteTodasPalavrasDaFrase(x[i].text,acusacao)
+                    if resp:
+                        return x
+        return ''
+
     def agenteCapitaoAmerica(self, frase):
         vacina = self._descobreVacina(frase)
         tempFN = self._retornarResposta(vacina,frase)
-        tempDescri = self._retornarDescricao(vacina,frase)
-
         if(tempFN!=''):
             return tempFN
+
+        #para Buscar FN caso ordem das palavras não encontre-se diferente da Base
+        tempFN = self._buscarFNPorPalavrasNaFrase(vacina,frase)
+        if(tempFN!=''):
+            return (tempFN[3].text, tempFN[4].text)
+
+        tempDescri = self._retornarDescricao(vacina,frase)
         if(tempDescri!=''):
             return tempDescri
         return ''

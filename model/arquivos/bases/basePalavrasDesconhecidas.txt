@@ -20,3 +20,4 @@ precoc
 vida
 sexual
 precoce
+PRECOCE

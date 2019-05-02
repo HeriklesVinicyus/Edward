@@ -1,4 +1,3 @@
-
 def _buscarPalavrasBaseLista():
     arq = open('model/arquivos/bases/baseSinonimos.txt')
     temp = arq.read()
@@ -18,7 +17,7 @@ def _buscarPalavrasDesconhecidas():
         resp.append(i)
     return resp
 
-def _adicionarPalavras(palavra):
+def _adicionarPalavraDesconhecida(palavra):
     temp = _buscarPalavrasDesconhecidas()
     if not (palavra in temp):
         arq = open('model/arquivos/bases/basePalavrasDesconhecidas.txt','w')
@@ -31,7 +30,7 @@ def _palavrasConhecidas(lista):
 def _retornaPalavrasConhecida(palavra, baseSinonimos):
     aux = [i[1] for i in baseSinonimos if i[0] == palavra]
     if len(aux) == 0:
-        _adicionarPalavras(palavra)
+        _adicionarPalavraDesconhecida(palavra)
         return palavra
     if len(aux) > 0:
         return aux[0]
@@ -47,9 +46,11 @@ class Ramalho:
 
     def retornaFaseComPalavrasConecidas(self,frase):
         temp = frase.split()
-        #resp = ' '.join([ _retornaPalavrasConhecida(i,self._listaSinonimos) for i in temp])
         resp = ''
         for i in temp:
-            aux = _retornaPalavrasConhecida(i,self._listaSinonimos)
+            if i in self._palavrasConhecidas:
+                aux = i
+            else:
+                aux = _retornaPalavrasConhecida(i,self._listaSinonimos)
             resp+= ' '+aux
         return ' '.join(resp.split())
