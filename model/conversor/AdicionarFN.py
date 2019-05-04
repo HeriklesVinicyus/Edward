@@ -1,3 +1,4 @@
+#Segundo arquivo que dever ser executado, ele adiciona as FN no arquivos baseDados.xml
 import xml.etree.ElementTree as et
 import spacy
 import nltk
@@ -6,7 +7,7 @@ import re
 nlp = spacy.load('pt')
 
 arquivoXML = 'model/arquivos/bases/baseDados.xml'
-arquivoFN = open('model/arquivos/FN.csv','r')
+arquivoFN = open('model/arquivos/info/FN.csv','r')
 arvore = et.parse(arquivoXML)
 raiz = arvore.getroot()
 textoFN = arquivoFN.read()

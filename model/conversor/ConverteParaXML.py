@@ -1,5 +1,6 @@
-#Classe para converter o arquivo 'vacinas.csv' em arquivo basedados.xml tratado
-arquivoVacinas = open('model/arquivos/Vacinas.csv','r')
+#Primeira classe que deve ser executada caso a base não esteja criada 
+# Classe para converter o arquivo 'vacinas.csv' em arquivo basedados.xml tratado casa
+arquivoVacinas = open('model/arquivos/info/Vacinas.csv','r')
 vacinas = arquivoVacinas.read()
 linhasVacinas = vacinas.split('\n')
 tabelaVacinas = []

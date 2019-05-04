@@ -1,3 +1,4 @@
+#Vai ate o site sinonimos e busca os sinonimos das bases de FN
 import requests
 import xml.etree.ElementTree as et
 from unicodedata import normalize
@@ -47,7 +48,7 @@ def _removeAcentos(palavra):
    return target.lower()
 
 def _extrairPalavrasBaseFN():
-    arquivoFN = open('model/arquivos/FN.csv','r')
+    arquivoFN = open('model/arquivos/info/FN.csv','r')
     FN = arquivoFN.read()
     
   

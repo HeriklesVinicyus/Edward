@@ -23,7 +23,6 @@ arquivoSinonimos = open('model/arquivos/bases/baseSinonimos.txt')
 sinonimos = arquivoSinonimos.read()
 sinonimosIndices = [[i.split('|')[0],i.split('|')[1]] for i in sinonimos.split('\n')]
 sinonimosIndices = _retornarIndicesSemrepedicoes(sinonimosIndices)
-#i.lemma_ for i in nlp(str(sinonimosIndices))
 temp = '\n'.join([i[0].lower()+'|'+i[1].lower() for i in sinonimosIndices])
 
 arquivoSinonimos.close()
