@@ -1,3 +1,12 @@
+antônimo: assexuado|sexual
+antônimo: desfazer|fazer
+antônimo: enfraquecer|desenvolver
+antônimo: facilidade|problema
+antônimo: forasteiro|natural
+antônimo: nenhum|muito
+antônimo: ocultar|mostrar
+antônimo: suprimir|implantar
+antônimo: vagamente|rigorosamente
 a|de
 a minha pessoa|me
 abacaxi|problema
@@ -56,15 +65,6 @@ anglicano|ingles
 ansiar|querer
 ante|em
 antecipado|precoce
-antônimo: assexuado|sexual
-antônimo: desfazer|fazer
-antônimo: enfraquecer|desenvolver
-antônimo: facilidade|problema
-antônimo: forasteiro|natural
-antônimo: nenhum|muito
-antônimo: ocultar|mostrar
-antônimo: suprimir|implantar
-antônimo: vagamente|rigorosamente
 ao respeito de|em
 aperfeiçoar|melhorar
 aperto|problema
@@ -130,6 +130,7 @@ caminhar|vir
 camisa-de-vênus|preservativo
 capaz|eficaz
 captar|entender
+carente|pobre
 carnal|sexual
 caro|meu
 catedral|se
@@ -138,6 +139,7 @@ cede|da
 cedes|das
 certar|combater
 certo|bem
+cidadãos|populacao
 cobiçar|querer
 colacionar|comparar
 com|de
@@ -220,6 +222,7 @@ dentre|de
 dentro de|em
 depois que|em
 depravação|promiscuidade
+desabastecido|pobre
 desacompanhado|so
 desagradável|ruim
 desarmoniosamente|mal
@@ -240,10 +243,13 @@ desobrigar|imunizar
 desobrigação|imunidade
 despelar|pelar
 despertar|causar
+despossuído|pobre
 desprenhar|parir
+desprovido|pobre
 desraizar|erradicar
 destina|da
 destinas|das
+desvalido|pobre
 desvantajoso|prejudicial
 desvelar|mostrar
 desvendar|mostrar
@@ -380,6 +386,7 @@ exímio|as
 faculta|da
 facultas|das
 fajuto|ruim
+falto|pobre
 farto|muito
 fatal|mortal
 fatal|prejudicial
@@ -418,6 +425,7 @@ garota|crianca
 garoto|crianca
 genital|sexual
 genitália|sexo
+gente|populacao
 gerar|causar
 gerar|fazer
 gerar|parir
@@ -433,6 +441,7 @@ guerrear|combater
 guri|crianca
 guria|crianca
 habilmente|bem
+habitantes|populacao
 haver|existir
 haver|ter
 hidrargírio|mercurio
@@ -468,7 +477,9 @@ inconveniente|prejudicial
 inconveniente|problema
 incorretamente|mal
 incômodo|problema
+indigente|pobre
 indisposição|doenca
+indivíduos|populacao
 indução|incentivo
 indígena|natural
 infeccioso|prejudicial
@@ -548,6 +559,7 @@ mania|coqueluche
 manobrar|funcionar
 mas|e
 mas|problema
+massa|populacao
 material|sexual
 matriz|se
 mau|prejudicial
@@ -566,6 +578,7 @@ mim|me
 mimosear|oferecer
 miseração|do
 misericórdia|do
+miserável|pobre
 miúdo|crianca
 moda|coqueluche
 modelo|exemplo
@@ -573,12 +586,14 @@ modos|reacoes
 moldar-se|servir
 molde|exemplo
 moléstia|doenca
+moradores|populacao
 morbo|doenca
 mostrar|provar
 motivar|causar
 motivar|provocar
 mover-se|funcionar
 mover-se|vir
+multidão|populacao
 máximo|melhor
 mês|ano
 múltiplo|muito
@@ -587,6 +602,8 @@ narrar|contar
 nascido|natural
 nativo|natural
 nauseabundo|ruim
+nação|populacao
+necessitado|pobre
 nefasto|prejudicial
 negativo|nao
 negativo|prejudicial
@@ -654,6 +671,7 @@ perigoso|prejudicial
 perito|as
 pernicioso|prejudicial
 pescar|entender
+pessoas|populacao
 pestilento|ruim
 petiz|crianca
 peça|coisa
@@ -668,6 +686,7 @@ porém|e
 porém|problema
 possuir|ter
 posteriormente|depois
+povo|populacao
 poção|remedio
 precisamente|rigorosamente
 prejudicante|prejudicial
@@ -686,6 +705,7 @@ prezado|meu
 primeiro|melhor
 primeiro|um
 principiar|implantar
+privado|pobre
 problema|doenca
 procedente|natural
 procederes|reacoes
@@ -714,6 +734,7 @@ prévio|precoce
 pugnar|combater
 párvulo|crianca
 péssimo|ruim
+público|populacao
 quadrar|servir
 quais coisas|que
 qual|que
@@ -740,6 +761,7 @@ repercussão|efeito
 reproduzir|parir
 requintar|melhorar
 resguardado|seguro
+residentes|populacao
 resistência|problema
 resultado|efeito
 resultante|efeito

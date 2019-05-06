@@ -1,4 +1,4 @@
-#Vai ate o site sinonimos e busca os sinonimos das bases de FN
+#Terceiro que dever ser execuldato Vai ate o site sinonimos e busca os sinonimos das bases de FN
 import requests
 import xml.etree.ElementTree as et
 from unicodedata import normalize
@@ -51,7 +51,6 @@ def _extrairPalavrasBaseFN():
     arquivoFN = open('modelo/arquivos/info/FN.csv','r')
     FN = arquivoFN.read()
     
-  
     lista = [i.split('\t')[2] for i in FN.split('\n') if len(i.split('\t'))>1]
     FN = ''
     for i in lista:
