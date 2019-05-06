@@ -19,13 +19,13 @@ def _retornarIndicesSemrepedicoes(sinonimos):
     return resp
 
 
-arquivoSinonimos = open('model/arquivos/bases/baseSinonimos.txt')
+arquivoSinonimos = open('modelo/arquivos/bases/baseSinonimos.txt')
 sinonimos = arquivoSinonimos.read()
 sinonimosIndices = [[i.split('|')[0],i.split('|')[1]] for i in sinonimos.split('\n')]
 sinonimosIndices = _retornarIndicesSemrepedicoes(sinonimosIndices)
 temp = '\n'.join([i[0].lower()+'|'+i[1].lower() for i in sinonimosIndices])
 
 arquivoSinonimos.close()
-arquivoSinonimos = open('model/arquivos/bases/baseSinonimos.txt','w')
+arquivoSinonimos = open('modelo/arquivos/bases/baseSinonimos.txt','w')
 arquivoSinonimos.write(temp)
 arquivoSinonimos.close()

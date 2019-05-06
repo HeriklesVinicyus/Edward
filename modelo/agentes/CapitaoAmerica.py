@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as et
 class CapitaoAmerica:
     def __init__(self):
-        self._arquivoXML = 'model/arquivos/bases/baseDados.xml'
+        self._arquivoXML = 'modelo/arquivos/bases/baseDados.xml'
         self._arvore = et.parse(self._arquivoXML)
         self.raiz = self._arvore.getroot()
 

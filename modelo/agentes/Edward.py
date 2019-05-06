@@ -1,6 +1,7 @@
-from agentes.Pasquale import Pasquale
-from agentes.Ramalho import Ramalho
-from agentes.CapitaoAmerica import CapitaoAmerica
+from Pasquale import Pasquale
+from Ramalho import Ramalho
+from CapitaoAmerica import CapitaoAmerica
+#import Validador
 
 class Edward:
     def __init__(self):
@@ -42,8 +43,11 @@ class Edward:
         for i in arrayDeAcusacoesRespostas:
             resp+= 'Sobre a frase: {}\nDeclaro: {}\n<Fonte para mais pesquisas: {}>\n\n'.format(i[0],i[1][0],i[1][1])
         return resp
-
-test = Edward()
-nosso = test.verificarTexto('meu filho não tem casa. Conservantes nas vacinas não faz bem. eu ouvi dizer que a Vacina contra o HPV da a incentiva o sexo sem preservativo? Vacina do HPV UM encorajamento PRECOCE À VIDA SEXUAL')
-
-print (test.responder(nosso))
+    
+'''
+agente = Edward()
+vali = Validador.buscarEntradas()
+listaRespostas = agente.verificarTexto(vali)
+Validador.adcionarVariasSaidas(listaRespostas)
+respostas = agente.responder(listaRespostas)
+print(respostas)'''

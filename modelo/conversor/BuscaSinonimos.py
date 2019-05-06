@@ -8,7 +8,7 @@ nlp = spacy.load('pt')
 
 #função para buscar dentro de um site do sinonimos.com.br e joga no arquivo temp.xml
 def _buscaSinonimosDentroHTML(palavra):
-   temp = open('model/arquivos/temp.xml','w')
+   temp = open('modelo/arquivos/temp.xml','w')
    r = requests.get('https://www.sinonimos.com.br'+palavra+'')
    if not r.ok:
       temp.write('')
@@ -48,7 +48,7 @@ def _removeAcentos(palavra):
    return target.lower()
 
 def _extrairPalavrasBaseFN():
-    arquivoFN = open('model/arquivos/info/FN.csv','r')
+    arquivoFN = open('modelo/arquivos/info/FN.csv','r')
     FN = arquivoFN.read()
     
   
@@ -79,7 +79,7 @@ def _criarDicionarioSinonimos():
         _buscaSinonimosDentroHTML(i)
         raiz = ''
         try:
-            arvore = et.parse('model/arquivos/temp.xml')
+            arvore = et.parse('modelo/arquivos/temp.xml')
             raiz = arvore.getroot()
         except et.ParseError:
             palavrasSemSinonimos+=i
@@ -95,7 +95,7 @@ def _criarDicionarioSinonimos():
 
 def _atualizarBaseSinonimos():
    todosSinonimos = _criarDicionarioSinonimos()
-   base = open('model/arquivos/bases/baseSinonimos.txt','w')
+   base = open('modelo/arquivos/bases/baseSinonimos.txt','w')
    base.write(todosSinonimos)
 
 _atualizarBaseSinonimos()

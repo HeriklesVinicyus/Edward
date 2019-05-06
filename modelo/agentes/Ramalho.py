@@ -1,5 +1,5 @@
 def _buscarPalavrasBaseLista():
-    arq = open('model/arquivos/bases/baseSinonimos.txt')
+    arq = open('modelo/arquivos/bases/baseSinonimos.txt')
     temp = arq.read()
     arq.close()
     resp = []
@@ -9,7 +9,7 @@ def _buscarPalavrasBaseLista():
     return resp
 
 def _buscarPalavrasDesconhecidas():
-    arq = open('model/arquivos/bases/basePalavrasDesconhecidas.txt')
+    arq = open('modelo/arquivos/bases/basePalavrasDesconhecidas.txt')
     temp = arq.read()
     arq.close()
     resp = []
@@ -20,7 +20,7 @@ def _buscarPalavrasDesconhecidas():
 def _adicionarPalavraDesconhecida(palavra):
     temp = _buscarPalavrasDesconhecidas()
     if not (palavra in temp):
-        arq = open('model/arquivos/bases/basePalavrasDesconhecidas.txt','w')
+        arq = open('modelo/arquivos/bases/basePalavrasDesconhecidas.txt','w')
         arq.write(('\n'.join(temp))+'\n'+palavra)
         arq.close()
 

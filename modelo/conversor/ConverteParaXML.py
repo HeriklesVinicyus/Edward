@@ -1,6 +1,6 @@
 #Primeira classe que deve ser executada caso a base não esteja criada 
 # Classe para converter o arquivo 'vacinas.csv' em arquivo basedados.xml tratado casa
-arquivoVacinas = open('model/arquivos/info/Vacinas.csv','r')
+arquivoVacinas = open('modelo/arquivos/info/Vacinas.csv','r')
 vacinas = arquivoVacinas.read()
 linhasVacinas = vacinas.split('\n')
 tabelaVacinas = []
@@ -16,7 +16,7 @@ def removerEspaco(frase):
    return temp
 
 def criarBaseDados(texto):
-   arquivo = open('model/arquivos/bases/baseDados.xml','w')
+   arquivo = open('modelo/arquivos/bases/baseDados.xml','w')
    arquivo.write(texto)
    arquivo.close()
 

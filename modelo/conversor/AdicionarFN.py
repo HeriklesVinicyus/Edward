@@ -6,8 +6,8 @@ import re
 
 nlp = spacy.load('pt')
 
-arquivoXML = 'model/arquivos/bases/baseDados.xml'
-arquivoFN = open('model/arquivos/info/FN.csv','r')
+arquivoXML = 'modelo/arquivos/bases/baseDados.xml'
+arquivoFN = open('modelo/arquivos/info/FN.csv','r')
 arvore = et.parse(arquivoXML)
 raiz = arvore.getroot()
 textoFN = arquivoFN.read()
@@ -36,7 +36,6 @@ for x in range(len(linhasFN)-1):
    tabelasFN.append(linhasFN[x].split('\t'))
 
 for x in tabelasFN:
-
    print(x)
    novaFakeNew = et.SubElement(raiz[retornaVacina(x[1])][3],'fakenew')
    fn = et.SubElement(novaFakeNew,'acusacao')
