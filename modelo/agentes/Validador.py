@@ -26,9 +26,15 @@ def adcionarSaida(acusacao, respostaFonte):
 
 def adcionarVariasSaidas(lista):
     for i in lista:
-        adcionarSaida(i[0],i[1])
+        adcionarSaida(i[0][0],i[0][1])
+
 
 #Teste se conforme as entradas validar as saidas
 entradas = buscarEntradas()
-lista = Edward().verificarTexto(entradas)
+lista = []
+for i in entradas.split('\n'):
+        aux =Edward().verificarTexto(i)
+        if len(aux) != 0:
+                lista.append(aux)
+
 adcionarVariasSaidas(lista)

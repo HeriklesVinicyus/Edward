@@ -1,7 +1,6 @@
 from Pasquale import Pasquale
 from Ramalho import Ramalho
 from CapitaoAmerica import CapitaoAmerica
-#import Validador
 
 class Edward:
     def __init__(self):
@@ -13,6 +12,7 @@ class Edward:
 
     def _verificarFrases(self, frases):
         for i in frases:
+            print(i)
             aux = self._ag3.agenteCapitaoAmerica(i[1])
             if aux != '' and [aux[0],aux[1]] not in self.resposta:
                 for j in frases:
@@ -44,10 +44,3 @@ class Edward:
             resp+= 'Sobre a frase: {}\nDeclaro: {}\n<Fonte para mais pesquisas: {}>\n\n'.format(i[0],i[1][0],i[1][1])
         return resp
     
-'''
-agente = Edward()
-vali = Validador.buscarEntradas()
-listaRespostas = agente.verificarTexto(vali)
-Validador.adcionarVariasSaidas(listaRespostas)
-respostas = agente.responder(listaRespostas)
-print(respostas)'''
