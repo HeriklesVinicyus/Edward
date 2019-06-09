@@ -12,7 +12,6 @@ class Edward:
 
     def _verificarFrases(self, frases):
         for i in frases:
-            print(i)
             aux = self._ag3.agenteCapitaoAmerica(i[1])
             if aux != '' and [aux[0],aux[1]] not in self.resposta:
                 for j in frases:

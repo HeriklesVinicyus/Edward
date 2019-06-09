@@ -1,4 +1,4 @@
-#Quarta a ser execuldata Essa classe trabalhar com a base de sinônimos removendo redundâncias e incongruências 
+#Quarta a ser execuldata Essa classe trabalha com a base de sinônimos removendo redundâncias e incongruências 
 
 import spacy
 nlp = spacy.load('pt')
