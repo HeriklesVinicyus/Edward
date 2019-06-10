@@ -16,21 +16,21 @@ def _buscarPalavrasDesconhecidas():
     for i in temp.split('\n'):
         resp.append(i)
     return resp
-
+'''
 def _adicionarPalavraDesconhecida(palavra):
     temp = _buscarPalavrasDesconhecidas()
     if not (palavra in temp):
         arq = open('modelo/arquivos/bases/basePalavrasDesconhecidas.txt','w')
         arq.write(('\n'.join(temp))+'\n'+palavra)
         arq.close()
-
+'''
 def _palavrasConhecidas(lista):
     return [i[1] for i in lista]
 
 def _retornaPalavrasConhecida(palavra, baseSinonimos):
     aux = [i[1] for i in baseSinonimos if i[0] == palavra]
     if len(aux) == 0:
-        _adicionarPalavraDesconhecida(palavra)
+        #_adicionarPalavraDesconhecida(palavra)
         return palavra
     if len(aux) > 0:
         return aux[0]
@@ -39,7 +39,7 @@ class Ramalho:
     def __init__(self):
         self._listaSinonimos = _buscarPalavrasBaseLista()
         self._palavrasConhecidas = _palavrasConhecidas(self._listaSinonimos)
-        self._palavrasDesconhecidas = _buscarPalavrasDesconhecidas()
+        #self._palavrasDesconhecidas = _buscarPalavrasDesconhecidas()
     
     def _recaregarPalavrasDesconhecidas(self):
         self._palavrasDesconhecidas = _buscarPalavrasDesconhecidas()

@@ -36,7 +36,6 @@ for x in range(len(linhasFN)-1):
    tabelasFN.append(linhasFN[x].split('\t'))
 
 for x in tabelasFN:
-   print(x)
    novaFakeNew = et.SubElement(raiz[retornaVacina(x[1])][3],'fakenew')
    fn = et.SubElement(novaFakeNew,'acusacao')
    tratada = et.SubElement(novaFakeNew,'acusacaotratadasc')

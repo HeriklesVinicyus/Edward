@@ -1,15 +1,21 @@
+#class Validador
+
 import xml.etree.ElementTree as et
 from Edward import Edward
 
-#class Validador
+
+#Retorna a frase de entrada e o id das frases que são CFN(legenda no arquivo /validar/MontarEntradas.py)
 def buscarEntradas():
     _resp = ''
+    _idCFN = []
     _arquivoXML = 'validar/Entrada.xml'
     _arvore = et.parse(_arquivoXML)
     _raiz = _arvore.getroot()
     for i in _raiz:
         _resp += i.text+'\n'
-    return _resp
+        if(i.attrib['tipo']=='cfn' or i.attrib['tipo']=='cfna'):
+                _idCFN.append(int(i.attrib['id']))
+    return _resp, _idCFN
 
 def adcionarSaida(acusacao, respostaFonte):
     _arquivoXML = 'validar/Saida.xml'
@@ -25,16 +31,42 @@ def adcionarSaida(acusacao, respostaFonte):
     _arvore.write(_arquivoXML)
 
 def adcionarVariasSaidas(lista):
-    for i in lista:
-        adcionarSaida(i[0][0],i[0][1])
+        _arquivoXML = 'validar/Saida.xml'
+        _arvore = et.parse(_arquivoXML)
+        _raiz = _arvore.getroot()
+        cont = len(_raiz)-1
+        for i in range(cont,-1,-1):
+                _raiz.remove(_raiz.getchildren()[i])
+        _arvore.write(_arquivoXML)
+                
+        for i in lista:
+                adcionarSaida(i[0][0],i[0][1])
 
 
 #Teste se conforme as entradas validar as saidas
-entradas = buscarEntradas()
+entradas, idCFN = buscarEntradas()
 lista = []
+listaId = []
+cont = 0
 for i in entradas.split('\n'):
         aux =Edward().verificarTexto(i)
         if len(aux) != 0:
+                listaId.append(cont)
                 lista.append(aux)
+        cont+=1
 
 adcionarVariasSaidas(lista)
+
+#Testes
+
+#
+for i in idCFN:
+        flag = True
+        for j in listaId:
+                if (i==j):
+                        flag = False
+                        break
+        if (flag):
+                print(i)
+
+print('asdf')

@@ -6,8 +6,18 @@ class CapitaoAmerica:
         self.raiz = self._arvore.getroot()
 
     def _retornarResposta(self, nome, acusacao):
-        if len(self._retornarFN(self._retornarVacina(nome), acusacao))>0:
-            return self._retornarFN(self._retornarVacina(nome), acusacao)[3].text, self._retornarFN(self._retornarVacina(nome), acusacao)[4].text
+        temp = self._retornarFN(self._retornarVacina(nome), acusacao)
+        if len(temp)>0:
+            return temp[3].text, temp[4].text
+        return ''
+
+    def _retornarRespostaBuscaGeral(self, acusacao):
+        #todasFN = []
+        for x in self.raiz:
+            TodasFNdasVacinas = [i for i in x if i.tag =='fakenews'][0]
+            for j in TodasFNdasVacinas:
+                if acusacao.lower() == (j[0].text).lower() or acusacao.lower() == (j[1].text).lower() or acusacao.lower() == (j[2].text).lower():
+                    return j
         return ''
 
     def _retornarDescricao(self,vacina,filho):
@@ -39,9 +49,9 @@ class CapitaoAmerica:
 
     def _verificaSeExisteTodasPalavrasDaFrase(self,fraseBase,acusacao):
         flagTemaPalavra = False
-        for y in fraseBase.split(' '):
+        for y in acusacao.split(' '):
             flagTemaPalavra = False
-            for z in acusacao.split(' '):
+            for z in fraseBase.split(' '):
                 if(y.lower()==z.lower()):
                     flagTemaPalavra = True
                     break
@@ -54,14 +64,27 @@ class CapitaoAmerica:
         if len(vacina)>0:
             TodasFNdaVacina = [i for i in vacina if i.tag =='fakenews'][0]
             for x in TodasFNdaVacina:
+                #são 3 por conta da acusações e acusações tratadas
                 for i in range(3):
                     resp = self._verificaSeExisteTodasPalavrasDaFrase(x[i].text,acusacao)
                     if resp:
                         return x
         return ''
 
+    def _retornarRespostaBuscaGeralComFnPorPalavrasNaFrase(self, acusacao):
+        #todasFN = []
+        for x in self.raiz:
+            TodasFNdasVacinas = [i for i in x if i.tag =='fakenews'][0]
+            for j in TodasFNdasVacinas:
+                for i in range(3):
+                    resp = self._verificaSeExisteTodasPalavrasDaFrase(j[i].text,acusacao)
+                    if resp:
+                        return j
+        return ''
+
     def agenteCapitaoAmerica(self, frase):
         vacina = self._descobreVacina(frase)
+
         tempFN = self._retornarResposta(vacina,frase)
         if(tempFN!=''):
             return tempFN
@@ -70,8 +93,24 @@ class CapitaoAmerica:
         tempFN = self._buscarFNPorPalavrasNaFrase(vacina,frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
+        
+        #Busca se a FN está nas outras vacinas
+        tempFN = self._retornarRespostaBuscaGeral(frase)
+        if(tempFN!=''):
+            return (tempFN[3].text, tempFN[4].text)
+
+        #para Buscar FN caso ordem das palavras encontre-se diferente da Base e em todas vacinas
+        tempFN = self._retornarRespostaBuscaGeralComFnPorPalavrasNaFrase(frase)
+        if(tempFN!=''):
+            return (tempFN[3].text, tempFN[4].text)
 
         tempDescri = self._retornarDescricao(vacina,frase)
         if(tempDescri!=''):
             return tempDescri
         return ''
+
+'''        
+tempFN = self._buscarFNPorPalavrasNaFrase(vacina,frase)
+if(tempFN!=''):
+    return (tempFN[3].text, tempFN[4].text)
+'''
