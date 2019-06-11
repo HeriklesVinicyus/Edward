@@ -35,6 +35,7 @@ def _montarEntrada():
 
 def gerarArquivoEntrada():
     arquivoEntrada = open('validar/Entrada.xml','w')
+    arquivoEntrada.write('')
     arquivoEntrada.write('<entrada>{}</entrada>'.format(_montarEntrada()))
     arquivoEntrada.close()
 

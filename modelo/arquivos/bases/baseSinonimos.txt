@@ -133,6 +133,7 @@ capaz|eficaz
 captar|entender
 carente|pobre
 carnal|sexual
+catapora|varicela
 catedral|se
 causar|provocar
 cede|da
@@ -225,7 +226,6 @@ dentro de|em
 depois que|em
 depravação|promiscuidade
 desabastecido|pobre
-desacompanhado|so
 desagradável|ruim
 desarmoniosamente|mal
 desarraigar|erradicar
@@ -338,7 +338,6 @@ entregas|das
 entretanto|e
 entusiasmar|incentivar
 envolver|conter
-eremítico|so
 erradamente|mal
 erótico|sexual
 escapar|evitar
@@ -802,8 +801,6 @@ soberano|melhor
 sobre|em
 sobrepesar|sobrecarregar
 sofisticar|melhorar
-solitário|so
-sozinho|so
 sufoco|problema
 sugestão|incentivo
 sumo|melhor

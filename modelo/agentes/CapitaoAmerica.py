@@ -67,7 +67,8 @@ class CapitaoAmerica:
                     quantPalavrasIguais += 1
                     continue
         #verifica a porcentagem de palavras iguais entre as frases
-        if ((quantPalavrasIguais*100)/len(fraseBase) >= 75):
+        if ((quantPalavrasIguais*100)/len(fraseBase) >= 70):
+            print ((quantPalavrasIguais*100)/len(fraseBase))
             return True
         return False
 
@@ -105,7 +106,6 @@ class CapitaoAmerica:
         return ''
 
     def agenteCapitaoAmerica(self, frase):
-        print ('\n\nFrase: {}'.format(frase))
         vacina = self._descobreVacina(frase)
 
         tempFN = self._retornarResposta(vacina,frase)
@@ -138,5 +138,3 @@ class CapitaoAmerica:
             return tempDescri
         
         return ''
-
-
