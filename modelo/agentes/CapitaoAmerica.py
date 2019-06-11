@@ -67,7 +67,7 @@ class CapitaoAmerica:
                     quantPalavrasIguais += 1
                     continue
         #verifica a porcentagem de palavras iguais entre as frases
-        if ((quantPalavrasIguais*100)/len(fraseBase) >= 80):
+        if ((quantPalavrasIguais*100)/len(fraseBase) >= 75):
             return True
         return False
 
@@ -111,32 +111,32 @@ class CapitaoAmerica:
         tempFN = self._retornarResposta(vacina,frase)
         if(tempFN!=''):
             return tempFN
-        print ('_retornarResposta')
+        
         #para Buscar FN caso ordem das palavras não encontre-se diferente da Base
         tempFN = self._buscarFNPorPalavrasNaFrase(vacina,frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
-        print ('_buscarFNPorPalavrasNaFrase')
+        
         #Busca se a FN está nas outras vacinas
         tempFN = self._retornarRespostaBuscaGeral(frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
-        print ('_retornarRespostaBuscaGeral')
+        
         #para Buscar FN caso ordem das palavras encontre-se diferente da Base e em todas vacinas
         tempFN = self._retornarRespostaBuscaGeralComFnPorPalavrasNaFrase(frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
-        print ('_retornarRespostaBuscaGeralComFnPorPalavrasNaFrase')
+        
         #para Buscar FN caso ordem das palavras encontre-se diferente da Base e em todas vacinas e por porcentagem
         tempFN = self._retornarRespostaBuscaGeralComPorcentagemPalavrasNaFrase(frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
-        print ('_retornarRespostaBuscaGeralComPorcentagemPalavrasNaFrase')
+        
 
         tempDescri = self._retornarDescricao(vacina,frase)
         if(tempDescri!=''):
             return tempDescri
-        print('*******************************************************')
+        
         return ''
 
 
