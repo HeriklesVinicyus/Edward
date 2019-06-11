@@ -49,9 +49,9 @@ class CapitaoAmerica:
 
     def _verificaSeExisteTodasPalavrasDaFrase(self,fraseBase,acusacao):
         flagTemaPalavra = False
-        for y in acusacao.split(' '):
+        for y in fraseBase.split(' '):
             flagTemaPalavra = False
-            for z in fraseBase.split(' '):
+            for z in acusacao.split(' '):
                 if(y.lower()==z.lower()):
                     flagTemaPalavra = True
                     break
@@ -59,6 +59,18 @@ class CapitaoAmerica:
                 return flagTemaPalavra
         return flagTemaPalavra
     
+    def _verificaSeExistePorcentagemPalavrasDaFrase(self,fraseBase,acusacao):
+        quantPalavrasIguais = 0
+        for y in fraseBase.split(' '):
+            for z in acusacao.split(' '):
+                if (y == z):
+                    quantPalavrasIguais += 1
+                    continue
+        #verifica a porcentagem de palavras iguais entre as frases
+        if ((quantPalavrasIguais*100)/len(fraseBase) >= 80):
+            return True
+        return False
+
     def _buscarFNPorPalavrasNaFrase(self,nome,acusacao):
         vacina = self._retornarVacina(nome)
         if len(vacina)>0:
@@ -82,35 +94,49 @@ class CapitaoAmerica:
                         return j
         return ''
 
+    def _retornarRespostaBuscaGeralComPorcentagemPalavrasNaFrase(self, acusacao):
+        for x in self.raiz:
+            TodasFNdasVacinas = [i for i in x if i.tag =='fakenews'][0]
+            for j in TodasFNdasVacinas:
+                for i in range(3):
+                    resp = self._verificaSeExistePorcentagemPalavrasDaFrase(j[i].text,acusacao)
+                    if resp:
+                        return j
+        return ''
+
     def agenteCapitaoAmerica(self, frase):
+        print ('\n\nFrase: {}'.format(frase))
         vacina = self._descobreVacina(frase)
 
         tempFN = self._retornarResposta(vacina,frase)
         if(tempFN!=''):
             return tempFN
-
+        print ('_retornarResposta')
         #para Buscar FN caso ordem das palavras não encontre-se diferente da Base
         tempFN = self._buscarFNPorPalavrasNaFrase(vacina,frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
-        
+        print ('_buscarFNPorPalavrasNaFrase')
         #Busca se a FN está nas outras vacinas
         tempFN = self._retornarRespostaBuscaGeral(frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
-
+        print ('_retornarRespostaBuscaGeral')
         #para Buscar FN caso ordem das palavras encontre-se diferente da Base e em todas vacinas
         tempFN = self._retornarRespostaBuscaGeralComFnPorPalavrasNaFrase(frase)
         if(tempFN!=''):
             return (tempFN[3].text, tempFN[4].text)
+        print ('_retornarRespostaBuscaGeralComFnPorPalavrasNaFrase')
+        #para Buscar FN caso ordem das palavras encontre-se diferente da Base e em todas vacinas e por porcentagem
+        tempFN = self._retornarRespostaBuscaGeralComPorcentagemPalavrasNaFrase(frase)
+        if(tempFN!=''):
+            return (tempFN[3].text, tempFN[4].text)
+        print ('_retornarRespostaBuscaGeralComPorcentagemPalavrasNaFrase')
 
         tempDescri = self._retornarDescricao(vacina,frase)
         if(tempDescri!=''):
             return tempDescri
+        print('*******************************************************')
         return ''
 
-'''        
-tempFN = self._buscarFNPorPalavrasNaFrase(vacina,frase)
-if(tempFN!=''):
-    return (tempFN[3].text, tempFN[4].text)
-'''
+
