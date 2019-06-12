@@ -1,5 +1,4 @@
 #class Validador
-
 import xml.etree.ElementTree as et
 from Edward import Edward
 
@@ -43,7 +42,7 @@ def adcionarVariasSaidas(lista):
                 adcionarSaida(i[0][0],i[0][1])
 
 
-#Teste se conforme as entradas validar as saidas
+#Test se conforme as entradas validar as saidas
 entradas, idCFN = buscarEntradas()
 lista = []
 listaId = []
@@ -56,17 +55,3 @@ for i in entradas.split('\n'):
         cont+=1
 
 adcionarVariasSaidas(lista)
-
-#Testes
-
-#
-for i in idCFN:
-        flag = True
-        for j in listaId:
-                if (i==j):
-                        flag = False
-                        break
-        if (flag):
-                print(i)
-
-print('asdf')
