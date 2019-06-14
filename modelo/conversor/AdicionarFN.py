@@ -39,7 +39,7 @@ for x in tabelasFN:
    novaFakeNew = et.SubElement(raiz[retornaVacina(x[1])][3],'fakenew')
    fn = et.SubElement(novaFakeNew,'acusacao')
    tratada = et.SubElement(novaFakeNew,'acusacaotratadasc')
-   tratada2 = et.SubElement(novaFakeNew,'acusacaotratadanlyk')
+   tratada2 = et.SubElement(novaFakeNew,'acusacaotratadanltk')
    resposta = et.SubElement(novaFakeNew,'resposta')
    fonte = et.SubElement(novaFakeNew,'fonte')
    #caso muda a estrutura dos .csv tenho que fazer muitas coisas para voltar a funcionar
