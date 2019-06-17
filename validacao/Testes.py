@@ -14,11 +14,12 @@ def retornaRaizes():
     return _raizE, _raizS
 
 
-def gerarGrafico(titulos, dados):
-    graf, ax1 = mp.subplots()
-    
-    ax1.pie(dados, labels=titulos, autopct='%1.1f%%', startangle=90)
-    ax1.axis('equal')
+def gerarGrafico(tituloGrafico, nomesEixos, dados):
+    mp.rcParams.update({'font.size':20})
+    mp.title('\n'+tituloGrafico+'\n',fontdict={'fontsize': 30})
+
+    mp.pie(dados, labels=nomesEixos, autopct='%1.2f%%', startangle=90)
+    mp.axis('equal')
 
     mp.show()
 
@@ -34,13 +35,13 @@ def testRespondeuSFN():
                 porcentagem += 1
         if(x.attrib['tipo'] == 'sfn'):
             total = + 1
+    tituloGrafico = 'Quantidade de Frases sem FN respondidas'
     porcentagem = (porcentagem*100)/total
-    titulos = ['Entradas Sem Fake News respondidas',
-               'Entradas Sem Fake News não respondidas']
-    dados = [100-porcentagem, porcentagem]
-    gerarGrafico(titulos, dados)
+    titulos = ['Entradas Sem Fake News não respondidas','Entradas Sem Fake News respondidas']
+    dados = [100-porcentagem,porcentagem]
+    gerarGrafico(tituloGrafico, titulos, dados)
 
-# Testa para verificar se frases que não com FN foram respondidas(o resultado deve ser o mais proximo de 0)
+# Testa para verificar se frases que com FN foram respondidas(o resultado deve ser o mais proximo de 100%)
 def testRespondeuCFN():
     raizE, raizS = retornaRaizes()
     porcentagem = 0
@@ -52,11 +53,12 @@ def testRespondeuCFN():
         if(x.attrib['tipo'] == 'cfn' or x.attrib['tipo'] == 'cfna'):
             total += 1
 
+    tituloGrafico = 'Quantidade de frases com FN respondidas'
     porcentagem = (porcentagem*100)/total
     titulos = ['Entradas com Fake News respondidas',
                'Entradas com Fake News não respondidas']
     dados = [porcentagem, 100-porcentagem]
-    gerarGrafico(titulos, dados)
+    gerarGrafico(tituloGrafico, titulos, dados)
 
 #
 def testRespondeuCFNA():
@@ -69,12 +71,12 @@ def testRespondeuCFNA():
                 porcentagem += 1
         if(x.attrib['tipo'] == 'cfna'):
             total += 1
-
+    tituloGrafico = 'Quantidade de frases com FN alteradas respondidas'
     porcentagem = (porcentagem*100)/total
-    titulos = ['Entradas com alterações nas Fake News respondidas',
-               'Entradas com alterações nas Fake News não respondidas']
+    titulos = ['Entradas com alterações\nnas Fake News\nrespondidas',
+               'Entradas com alterações\nnas Fake News\nnão respondidas']
     dados = [porcentagem, 100-porcentagem]
-    gerarGrafico(titulos, dados)
+    gerarGrafico(tituloGrafico, titulos, dados)
 
 
 
@@ -95,12 +97,12 @@ def testRespondeuCorretamenteComSemFN():
         if(x.attrib['tipo'] == 'sfn'):
             totalSFN += 1
         total += 1
-
+    tituloGrafico = 'Quantidade de frases respondidas de forma correta'
     porcentagem = ((porcentagemCFN +(totalSFN - porcentagemSFN))*100)/total
     titulos = ['Entradas respondida corretamente',
                'Entradas respondida de forma errada']
     dados = [porcentagem, 100-porcentagem]
-    gerarGrafico(titulos, dados)
+    gerarGrafico(tituloGrafico,titulos, dados)
 
 if(str(input('Gostaria de recompilar a base de saida?(s): ')).lower()=='s'):
     print('Processo iniciado')
