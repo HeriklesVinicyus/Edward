@@ -14,7 +14,7 @@ from controle.Edward import Edward
 
 #Armazena o parâmetro no arquivo de saídas
 def _adcionarSaida(acusacao, respostaFonte):
-    _arquivoXML = 'validar/Saida.xml'
+    _arquivoXML = 'validacao/Saida.xml'
     _arvore = et.parse(_arquivoXML)
     _raiz = _arvore.getroot()
     _novaSaida = et.SubElement(_raiz,'saida')
@@ -29,7 +29,7 @@ def _adcionarSaida(acusacao, respostaFonte):
 #Retorna as frases do arquivo de entradas
 def _buscarEntradas():
     _resp = ''
-    _arquivoXML = 'validar/Entrada.xml'
+    _arquivoXML = 'validacao/Entrada.xml'
     _arvore = et.parse(_arquivoXML)
     _raiz = _arvore.getroot()
     for i in _raiz:
@@ -38,7 +38,7 @@ def _buscarEntradas():
 
 #Armazena no arquivo de saídas lista com varias saídas
 def _adcionarVariasSaidas(lista):
-        _arquivoXML = 'validar/Saida.xml'
+        _arquivoXML = 'validacao/Saida.xml'
         _arvore = et.parse(_arquivoXML)
         _raiz = _arvore.getroot()
         cont = len(_raiz)-1

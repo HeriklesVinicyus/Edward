@@ -19,7 +19,7 @@ def _rotulaFrase(notacao):
         return 'sfn'
 
 def _montarEntrada():
-    arquivoBase = open('validar/arquivos/entradaIdFrase.csv','r')
+    arquivoBase = open('validacao/arquivos/entradaIdFrase.csv','r')
     frasesSeparadas = arquivoBase.read().split('\n')
     arquivoBase.close()
 
@@ -34,7 +34,7 @@ def _montarEntrada():
     return temp
 
 def gerarArquivoEntrada():
-    arquivoEntrada = open('validar/Entrada.xml','w')
+    arquivoEntrada = open('validacao/Entrada.xml','w')
     arquivoEntrada.write('')
     arquivoEntrada.write('<entrada>{}</entrada>'.format(_montarEntrada()))
     arquivoEntrada.close()

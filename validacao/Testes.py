@@ -1,13 +1,12 @@
 # Testes
 import xml.etree.ElementTree as et
 import matplotlib.pyplot as mp
+import arquivos.MontarSaidas as ms
 
 # Função para retornar as Raizes do arquivos XML de entrada e saida
-
-
 def retornaRaizes():
-    _arquivoXMLEntrada = 'validar/Entrada.xml'
-    _arquivoXMLSaida = 'validar/Saida.xml'
+    _arquivoXMLEntrada = 'validacao/Entrada.xml'
+    _arquivoXMLSaida = 'validacao/Saida.xml'
     _arvoreE = et.parse(_arquivoXMLEntrada)
     _arvoreS = et.parse(_arquivoXMLSaida)
     _raizE = _arvoreE.getroot()
@@ -24,8 +23,6 @@ def gerarGrafico(titulos, dados):
     mp.show()
 
 # Testa para verificar se frases que não sem FN foram respondidas(o resultado deve ser o mais proximo de 0)
-
-
 def testRespondeuSFN():
     raizE, raizS = retornaRaizes()
     porcentagem = 0
@@ -44,8 +41,6 @@ def testRespondeuSFN():
     gerarGrafico(titulos, dados)
 
 # Testa para verificar se frases que não com FN foram respondidas(o resultado deve ser o mais proximo de 0)
-
-
 def testRespondeuCFN():
     raizE, raizS = retornaRaizes()
     porcentagem = 0
@@ -85,8 +80,6 @@ def testRespondeuCFNA():
 
 # Teste total de frases de entrada X Saidas
 # Esse teste busca saber quantos % da entradas foram respondidas de forma correta(as com e sem Fake News)
-
-
 def testRespondeuCorretamenteComSemFN():
     raizE, raizS = retornaRaizes()
     porcentagemCFN = 0
@@ -108,6 +101,12 @@ def testRespondeuCorretamenteComSemFN():
                'Entradas respondida de forma errada']
     dados = [porcentagem, 100-porcentagem]
     gerarGrafico(titulos, dados)
+
+if(str(input('Gostaria de recompilar a base de saida?(s): ')).lower()=='s'):
+    print('Processo iniciado')
+    ms.executar()
+    print('Fim do processo')
+
 
 testRespondeuCorretamenteComSemFN()
 testRespondeuSFN()
