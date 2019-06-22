@@ -17,8 +17,8 @@ def retornaRaizes():
 def gerarGrafico(tituloGrafico, nomesEixos, dados):
     mp.rcParams.update({'font.size':20})
     mp.title('\n'+tituloGrafico+'\n',fontdict={'fontsize': 30})
-
     mp.pie(dados, labels=nomesEixos, autopct='%1.2f%%', startangle=90)
+    #mp.legend(loc='')
     mp.axis('equal')
 
     mp.show()
@@ -35,7 +35,7 @@ def testRespondeuSFN():
                 porcentagem += 1
         if(x.attrib['tipo'] == 'sfn'):
             total = + 1
-    tituloGrafico = 'Quantidade de Frases sem FN respondidas'
+    tituloGrafico = ''
     porcentagem = (porcentagem*100)/total
     titulos = ['Entradas Sem Fake News não respondidas','Entradas Sem Fake News respondidas']
     dados = [100-porcentagem,porcentagem]
@@ -53,7 +53,7 @@ def testRespondeuCFN():
         if(x.attrib['tipo'] == 'cfn' or x.attrib['tipo'] == 'cfna'):
             total += 1
 
-    tituloGrafico = 'Quantidade de frases com FN respondidas'
+    tituloGrafico = ''
     porcentagem = (porcentagem*100)/total
     titulos = ['Entradas com Fake News respondidas',
                'Entradas com Fake News não respondidas']
@@ -71,7 +71,7 @@ def testRespondeuCFNA():
                 porcentagem += 1
         if(x.attrib['tipo'] == 'cfna'):
             total += 1
-    tituloGrafico = 'Quantidade de frases com FN alteradas respondidas'
+    tituloGrafico = ''
     porcentagem = (porcentagem*100)/total
     titulos = ['Entradas com alterações\nnas Fake News\nrespondidas',
                'Entradas com alterações\nnas Fake News\nnão respondidas']
@@ -97,10 +97,10 @@ def testRespondeuCorretamenteComSemFN():
         if(x.attrib['tipo'] == 'sfn'):
             totalSFN += 1
         total += 1
-    tituloGrafico = 'Quantidade de frases respondidas de forma correta'
+    tituloGrafico = ''
     porcentagem = ((porcentagemCFN +(totalSFN - porcentagemSFN))*100)/total
-    titulos = ['Entradas respondida corretamente',
-               'Entradas respondida de forma errada']
+    titulos = ['Entradas respondidas corretamente',
+               'Entradas respondidas de forma errada']
     dados = [porcentagem, 100-porcentagem]
     gerarGrafico(tituloGrafico,titulos, dados)
 
